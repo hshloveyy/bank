@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC   
+     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+     "http://struts.apache.org/dtds/struts-2.0.dtd">
+     
+     
+<struts>
+    <package name="liu" extends="struts-default">
+        <global-results>
+            <result name="succeed">/common/succeed.jsp</result>
+            <result name="successAdd">/common/add_success.jsp</result>
+            <result name="msg">/common/msg.jsp</result>
+        </global-results>
+        
+        
+        
+        <action name="userAdd" class="userAction" method="userAdd">
+        </action>
+        <action name="userDel" class="userAction" method="userDel">
+        </action>
+        <action name="userMana" class="userAction" method="userMana">
+             <result name="success">/admin/user/userMana.jsp</result>
+        </action>
+        <action name="user_dongjie" class="userAction" method="user_dongjie">
+        </action>
+        <action name="user_jiedong" class="userAction" method="user_jiedong">
+        </action>
+        
+        
+        <action name="userYue" class="userAction" method="userYue">
+             <result name="success">/auser/yue/userYue.jsp</result>
+        </action>
+        <action name="cunAdd" class="userAction" method="cunAdd">
+        </action>
+        <action name="cunMana_user" class="userAction" method="cunMana_user">
+             <result name="success">/auser/cun/cunMana_user.jsp</result>
+        </action>
+        <action name="quAdd" class="userAction" method="quAdd">
+        </action>
+        <action name="quMana_user" class="userAction" method="quMana_user">
+             <result name="success">/auser/qu/quMana_user.jsp</result>
+        </action> 
+        <action name="zhuanzhangAdd" class="userAction" method="zhuanzhangAdd">
+        </action> 
+        <action name="zhuanzhangMana_user" class="userAction" method="zhuanzhangMana_user">
+             <result name="success">/auser/zhuanzhang/zhuanzhangMana_user.jsp</result>
+        </action> 
+        
+        
+        
+        <action name="adminAdd" class="adminAction" method="adminAdd">
+        </action>
+        <action name="adminDel" class="adminAction" method="adminDel">
+        </action>
+        <action name="adminManage" class="adminAction" method="adminManage">
+            <result name="success">/admin/index/adminManage.jsp</result>
+        </action>
+        
+        
+        
+        <action name="lilvMana" class="lilvAction" method="lilvMana">
+            <result name="success">/admin/lilv/lilvMana.jsp</result>
+        </action>
+        <action name="lilvEdit" class="lilvAction" method="lilvEdit">
+        </action>
+        <action name="lilvChakan" class="lilvAction" method="lilvChakan">
+            <result name="success">/auser/lilv/lilvChakan.jsp</result>
+        </action>
+        <action name="lixijisuan" class="lilvAction" method="lixijisuan">
+            <result name="success">/auser/lilv/lixijisuan_re.jsp</result>
+        </action>
+    </package>
+</struts>
