@@ -23,7 +23,7 @@ public class TUser implements java.io.Serializable
 	private String email;
 	//银行卡号
 	private String kahao;
-	//头像路径
+	//账号密码
 	private String ps;
 	//身份证号码
 	private String shenfenzheng;
