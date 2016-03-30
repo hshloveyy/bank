@@ -96,13 +96,15 @@ public class lilvAction extends ActionSupport
 		//获取用户选择结束时间
 		String shijian_end=req.getParameter("shijian_end");
 		
-		//
+		//计算开始到结束时间的天数
 		int tianshu=liuService.getAllDateBettwenTwoDate(shijian_sta, shijian_end).size();
 		System.out.println(tianshu);
 		
+		//计算利息,利息 = 金额 + 天数 x 利率
 		double lixi=jine + tianshu * lilvDAO.findById(1).getLilv();
 		System.out.println(lixi);
 		
+		//将利息结果放到request中,页面做显示
 		request.put("lixi", lixi);
 		return ActionSupport.SUCCESS;
 	}
