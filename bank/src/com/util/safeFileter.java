@@ -11,6 +11,12 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 这个是个过滤器，配置在web.xml中
+ * @ClassName safeFileter
+ * @Description TODO
+ * @date 2016年3月30日 下午1:14:45
+ */
 public class safeFileter implements Filter {
 
 	public void destroy()
@@ -18,6 +24,9 @@ public class safeFileter implements Filter {
 		
     }
 
+	/**
+	 * 此方法在每次请求中都会执行，在本工程中并未使用
+	 */
 	public void doFilter(ServletRequest arg0, ServletResponse arg1,FilterChain arg2) throws IOException, ServletException 
 	{
 		HttpServletRequest request=(HttpServletRequest)arg0;
