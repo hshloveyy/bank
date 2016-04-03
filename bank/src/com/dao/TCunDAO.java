@@ -15,16 +15,20 @@ import com.model.TCun;
  * @see com.model.TCun
  * @author MyEclipse Persistence Tools
  */
-
+/**
+ * 存款表操作类
+ *
+ */
 public class TCunDAO extends HibernateDaoSupport
 {
 	private static final Log log = LogFactory.getLog(TCunDAO.class);
 
 	// property constants
+	//用户id字段名
 	public static final String USER_ID = "userId";
-
+	//金额字段名
 	public static final String JINE = "jine";
-
+	//状态字段名
 	public static final String DEL = "del";
 
 	protected void initDao()
@@ -32,6 +36,10 @@ public class TCunDAO extends HibernateDaoSupport
 		// do nothing
 	}
 
+	/**
+	 * 保存存款信息
+	 * @param transientInstance
+	 */
 	public void save(TCun transientInstance)
 	{
 		log.debug("saving TCun instance");
@@ -46,6 +54,10 @@ public class TCunDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 删除存款信息
+	 * @param persistentInstance
+	 */
 	public void delete(TCun persistentInstance)
 	{
 		log.debug("deleting TCun instance");
@@ -60,6 +72,11 @@ public class TCunDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据用户id查询对象
+	 * @param del
+	 * @return
+	 */
 	public TCun findById(java.lang.Integer id)
 	{
 		log.debug("getting TCun instance with id: " + id);
@@ -75,6 +92,11 @@ public class TCunDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据对象属性查询存款信息
+	 * @param del
+	 * @return
+	 */
 	public List findByExample(TCun instance)
 	{
 		log.debug("finding TCun instance by example");
@@ -91,6 +113,11 @@ public class TCunDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据字段名查询存款信息
+	 * @param del
+	 * @return
+	 */
 	public List findByProperty(String propertyName, Object value)
 	{
 		log.debug("finding TCun instance with property: " + propertyName
@@ -107,21 +134,40 @@ public class TCunDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据用户id查询存款信息
+	 * @param del
+	 * @return
+	 */
 	public List findByUserId(Object userId)
 	{
 		return findByProperty(USER_ID, userId);
 	}
 
+	/**
+	 * 根据金额查询存款信息
+	 * @param del
+	 * @return
+	 */
 	public List findByJine(Object jine)
 	{
 		return findByProperty(JINE, jine);
 	}
 
+	/**
+	 * 根据删除状态查询存款信息
+	 * @param del
+	 * @return
+	 */
 	public List findByDel(Object del)
 	{
 		return findByProperty(DEL, del);
 	}
 
+	/**
+	 * 查询所有存款信息列表
+	 * @return
+	 */
 	public List findAll()
 	{
 		log.debug("finding all TCun instances");
@@ -136,6 +182,12 @@ public class TCunDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 如果对象存在数据库中,则转成持久态
+	 * 如果不存在,则保存到数据库中,再转成持久态
+	 * @param detachedInstance
+	 * @return
+	 */
 	public TCun merge(TCun detachedInstance)
 	{
 		log.debug("merging TCun instance");
@@ -151,6 +203,11 @@ public class TCunDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 如果对象存在数据库中,则转成持久态
+	 * 如果不存在,则保存到数据库中,再转成持久态
+	 * @param instance
+	 */
 	public void attachDirty(TCun instance)
 	{
 		log.debug("attaching dirty TCun instance");
@@ -165,6 +222,10 @@ public class TCunDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 将对象对应的数据库记录升级为悲观锁，由此可以保证修改的串行化
+	 * @param instance
+	 */
 	public void attachClean(TCun instance)
 	{
 		log.debug("attaching clean TCun instance");
@@ -179,6 +240,11 @@ public class TCunDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 从spring容器中获取TCunDAO这个bean
+	 * @param ctx
+	 * @return
+	 */
 	public static TCunDAO getFromApplicationContext(ApplicationContext ctx)
 	{
 		return (TCunDAO) ctx.getBean("TCunDAO");

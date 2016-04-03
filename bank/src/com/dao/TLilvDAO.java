@@ -15,12 +15,15 @@ import com.model.TLilv;
  * @see com.model.TLilv
  * @author MyEclipse Persistence Tools
  */
-
+/**
+ * 利率表操作类
+ */
 public class TLilvDAO extends HibernateDaoSupport
 {
 	private static final Log log = LogFactory.getLog(TLilvDAO.class);
 
 	// property constants
+	//利率字段名
 	public static final String LILV = "lilv";
 
 	protected void initDao()
@@ -28,6 +31,10 @@ public class TLilvDAO extends HibernateDaoSupport
 		// do nothing
 	}
 
+	/**
+	 * 保存利率信息
+	 * @param transientInstance
+	 */
 	public void save(TLilv transientInstance)
 	{
 		log.debug("saving TLilv instance");
@@ -42,6 +49,10 @@ public class TLilvDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 删除利率信息
+	 * @param persistentInstance
+	 */
 	public void delete(TLilv persistentInstance)
 	{
 		log.debug("deleting TLilv instance");
@@ -56,6 +67,11 @@ public class TLilvDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据利率id查询对象
+	 * @param id
+	 * @return
+	 */
 	public TLilv findById(java.lang.Integer id)
 	{
 		log.debug("getting TLilv instance with id: " + id);
@@ -71,6 +87,11 @@ public class TLilvDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据利率信息属性查询利率列表
+	 * @param instance
+	 * @return
+	 */
 	public List findByExample(TLilv instance)
 	{
 		log.debug("finding TLilv instance by example");
@@ -87,6 +108,12 @@ public class TLilvDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据利率属性查询列表
+	 * @param propertyName
+	 * @param value
+	 * @return
+	 */
 	public List findByProperty(String propertyName, Object value)
 	{
 		log.debug("finding TLilv instance with property: " + propertyName
@@ -103,11 +130,20 @@ public class TLilvDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据利率查询对象
+	 * @param lilv
+	 * @return
+	 */
 	public List findByLilv(Object lilv)
 	{
 		return findByProperty(LILV, lilv);
 	}
 
+	/**
+	 * 查询所有利率信息列表
+	 * @return
+	 */
 	public List findAll()
 	{
 		log.debug("finding all TLilv instances");
@@ -122,6 +158,12 @@ public class TLilvDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 如果对象存在数据库中,则转成持久态
+	 * 如果不存在,则保存到数据库中,再转成持久态
+	 * @param detachedInstance
+	 * @return
+	 */
 	public TLilv merge(TLilv detachedInstance)
 	{
 		log.debug("merging TLilv instance");
@@ -138,6 +180,11 @@ public class TLilvDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 如果对象存在数据库中,则转成持久态
+	 * 如果不存在,则保存到数据库中,再转成持久态
+	 * @param instance
+	 */
 	public void attachDirty(TLilv instance)
 	{
 		log.debug("attaching dirty TLilv instance");
@@ -152,6 +199,10 @@ public class TLilvDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 将对象对应的数据库记录升级为悲观锁，由此可以保证修改的串行化
+	 * @param instance
+	 */
 	public void attachClean(TLilv instance)
 	{
 		log.debug("attaching clean TLilv instance");
@@ -166,6 +217,11 @@ public class TLilvDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 从spring容器中获取TLilvDAO这个bean
+	 * @param ctx
+	 * @return
+	 */
 	public static TLilvDAO getFromApplicationContext(ApplicationContext ctx)
 	{
 		return (TLilvDAO) ctx.getBean("TLilvDAO");

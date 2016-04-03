@@ -15,18 +15,21 @@ import com.model.TQu;
  * @see com.model.TQu
  * @author MyEclipse Persistence Tools
  */
-
+/**
+ * 存款表操作类
+ */
 public class TQuDAO extends HibernateDaoSupport
 {
 	private static final Log log = LogFactory.getLog(TQuDAO.class);
 
 	// property constants
+	//用户id字段名
 	public static final String USER_ID = "userId";
-
+	//金额字段名
 	public static final String JINE = "jine";
-
+	//时间字段名
 	public static final String SHIJIAN = "shijian";
-
+	//状态字段名
 	public static final String DEL = "del";
 
 	protected void initDao()
@@ -34,6 +37,10 @@ public class TQuDAO extends HibernateDaoSupport
 		// do nothing
 	}
 
+	/**
+	 * 保存取款信息
+	 * @param transientInstance
+	 */
 	public void save(TQu transientInstance)
 	{
 		log.debug("saving TQu instance");
@@ -48,6 +55,10 @@ public class TQuDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 删除取款信息
+	 * @param persistentInstance
+	 */
 	public void delete(TQu persistentInstance)
 	{
 		log.debug("deleting TQu instance");
@@ -62,6 +73,11 @@ public class TQuDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据id查询取款对象
+	 * @param id
+	 * @return
+	 */
 	public TQu findById(java.lang.Integer id)
 	{
 		log.debug("getting TQu instance with id: " + id);
@@ -77,6 +93,11 @@ public class TQuDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据取款对象属性查询取款列表
+	 * @param instance
+	 * @return
+	 */
 	public List findByExample(TQu instance)
 	{
 		log.debug("finding TQu instance by example");
@@ -93,6 +114,12 @@ public class TQuDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据属性名查询取款列表
+	 * @param propertyName
+	 * @param value
+	 * @return
+	 */
 	public List findByProperty(String propertyName, Object value)
 	{
 		log.debug("finding TQu instance with property: " + propertyName
@@ -109,26 +136,50 @@ public class TQuDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 根据用户id查询取款信息列表
+	 * @param userId
+	 * @return
+	 */
 	public List findByUserId(Object userId)
 	{
 		return findByProperty(USER_ID, userId);
 	}
 
+	/**
+	 * 根据金额查询取款列表
+	 * @param jine
+	 * @return
+	 */
 	public List findByJine(Object jine)
 	{
 		return findByProperty(JINE, jine);
 	}
 
+	/**
+	 * 根据时间查询取款列表
+	 * @param shijian
+	 * @return
+	 */
 	public List findByShijian(Object shijian)
 	{
 		return findByProperty(SHIJIAN, shijian);
 	}
 
+	/**
+	 * 根据状态查询取款列表
+	 * @param del
+	 * @return
+	 */
 	public List findByDel(Object del)
 	{
 		return findByProperty(DEL, del);
 	}
 
+	/**
+	 * 查询所有取款信息列表
+	 * @return
+	 */
 	public List findAll()
 	{
 		log.debug("finding all TQu instances");
@@ -143,6 +194,12 @@ public class TQuDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 如果对象存在数据库中,则转成持久态
+	 * 如果不存在,则保存到数据库中,再转成持久态
+	 * @param detachedInstance
+	 * @return
+	 */
 	public TQu merge(TQu detachedInstance)
 	{
 		log.debug("merging TQu instance");
@@ -158,6 +215,11 @@ public class TQuDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 如果对象存在数据库中,则转成持久态
+	 * 如果不存在,则保存到数据库中,再转成持久态
+	 * @param instance
+	 */
 	public void attachDirty(TQu instance)
 	{
 		log.debug("attaching dirty TQu instance");
@@ -172,6 +234,10 @@ public class TQuDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 将对象对应的数据库记录升级为悲观锁，由此可以保证修改的串行化
+	 * @param instance
+	 */
 	public void attachClean(TQu instance)
 	{
 		log.debug("attaching clean TQu instance");
@@ -186,6 +252,11 @@ public class TQuDAO extends HibernateDaoSupport
 		}
 	}
 
+	/**
+	 * 从spring容器中获取TQuDAO这个bean
+	 * @param ctx
+	 * @return
+	 */
 	public static TQuDAO getFromApplicationContext(ApplicationContext ctx)
 	{
 		return (TQuDAO) ctx.getBean("TQuDAO");
